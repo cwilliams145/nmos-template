@@ -2,4 +2,4 @@
 
 # APIs for v1.0-dev
 
-- [TemplateAPI](html-APIs/TemplateAPI.html)
+- [TemplateAPI](TemplateAPI.html)

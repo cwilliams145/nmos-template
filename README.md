@@ -62,4 +62,4 @@ Run server with:
 
 ``make server``
 
-And browse to <http://127.0.0.1:4000>.
+and browse to the indicated page.

@@ -1,1 +1,12 @@
-theme: jekyll-theme-cayman
+# Don't change this
+theme: jekyll-theme-primer
+
+# GitHub project
+baseurl: /nmos-template
+
+# Which relase or branch appears in header links and on the home page
+default_tree: branches/v1.0-dev # alternatively e.g. tags/v1.0
+
+# Regex patterns of tags (releases) and branches to show
+show_tags: v[0-9]*\.[0-9]*
+show_branches: v[0-9]*\.[0-9]*
