@@ -14,9 +14,13 @@ body {
     text-align: center;
   }
   
-  p {
+  .markdown-body p {
     font-family: verdana;
-    font-size: 20px;
+    font-size: 125%;
+  }
+
+  .markdown-body h3 {
+    font-size: 150%;
   }
 
   #logo-banner {
