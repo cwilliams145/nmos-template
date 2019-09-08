@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "jsonlint": "^1.6.3",
-    "raml2html": "^7.3.0"
+    "raml2html": "^7.4.0"
   }
 }
