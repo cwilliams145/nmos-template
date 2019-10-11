@@ -5,3 +5,5 @@
 ## JSON Schemas for branch v1.0-dev
 
 - [error](error.json)
+- [exampleapi-base](exampleapi-base.json)
+- [id-uuid](id-uuid.json)
