@@ -20,23 +20,32 @@ function extract {
         fi
         if [ -d APIs ]; then
             cd APIs
-                echo "NB: including workaround for how v6 of raml2html deals with \$ref and schemas/ dir"
-                perl -pi.orig -e 's=("\$ref": ")(.*)(\.json)=$1schemas/$2$3=' schemas/*.json
+                # echo "NB: including workaround for how v6 of raml2html deals with \$ref and schemas/ dir"
+                # perl -pi.orig -e 's=("\$ref": ")(.*)(\.json)=$1schemas/$2$3=' schemas/*.json
+                cd schemas
+                    mkdir resolved
+                    for i in *.json; do
+                        echo "Resolving schema references for $i"
+                        ../../../resolve-schema.py $i > $i.resolved
+                        mv $i $i.with-refs
+                        mv $i.resolved $i
+                    done
+                    cd ..
                 for i in *.raml; do
                     echo "Generating HTML from $i..."
                     raml2html $i > "${i%%.raml}.html"
                 done
-                for i in schemas/*.json.orig; do
-                    mv "$i" "${i%%.orig}"
-                done
+                # for i in schemas/*.json.orig; do
+                #     mv "$i" "${i%%.orig}"
+                # done
                 mkdir "../../$target_dir/html-APIs"
                 mv *.html "../../$target_dir/html-APIs/"
                 if [ -d schemas ]; then
                     echo "Linting schemas..."
-                    jsonlint -v schemas/*.json
+                    jsonlint -v schemas/*.json{,.with-refs}
                     echo "Copying schemas..."
                     mkdir "../../$target_dir/html-APIs/schemas"
-                    cp schemas/*.json "../../$target_dir/html-APIs/schemas"
+                    cp schemas/*.json{,.with-refs} "../../$target_dir/html-APIs/schemas"
                 fi
                 cd ..
         fi

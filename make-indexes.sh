@@ -68,7 +68,7 @@ function do_b_or_t {
                 for schema in html-APIs/schemas/*.json; do
                     no_ext="${schema%%.json}"
                     linktext="${no_ext##*/}"
-                    echo "- [$linktext](${schema##*/})" >> "$INDEX_SCHEMAS"
+                    echo "- [$linktext](${schema##*/}.with-refs) [(flattened)](${schema##*/})" >> "$INDEX_SCHEMAS"
                 done
             fi
 
