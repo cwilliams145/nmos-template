@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes the Example API base resource",
+    "properties": {
+        "id": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description": "Describes an UUID id object",
+            "properties": {
+                "id": {
+                    "description": "UUID",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "UUID ID",
+            "type": "object"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "title": "Example API base resource",
+    "type": "object"
+}
