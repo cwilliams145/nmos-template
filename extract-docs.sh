@@ -21,12 +21,12 @@ function extract {
         if [ -d APIs ]; then
             cd APIs
                 cd schemas
-                    mkdir resolved
+                    mkdir with-refs resolved
                     for i in *.json; do
                         echo "Resolving schema references for $i"
-                        ../../../resolve-schema.py $i > $i.resolved
-                        mv $i ${i%%.json}.with-refs.json
-                        mv $i.resolved $i
+                        ../../../resolve-schema.py $i > resolved/$i
+                        mv $i with-refs/
+                        cp resolved/$i $i
                     done
                     cd ..
                 for i in *.raml; do
@@ -40,7 +40,12 @@ function extract {
                     jsonlint -v schemas/*.json
                     echo "Copying schemas..."
                     mkdir "../../$target_dir/html-APIs/schemas"
-                    cp schemas/*.json "../../$target_dir/html-APIs/schemas"
+                    mkdir "../../$target_dir/html-APIs/schemas/with-refs"
+                    cp schemas/with-refs/*.json "../../$target_dir/html-APIs/schemas/with-refs"
+                    mkdir "../../$target_dir/html-APIs/schemas/resolved"
+                    cp schemas/resolved/*.json "../../$target_dir/html-APIs/schemas/resolved"
+                    echo "Tidying..."
+                    rm -rf schemas/with-refs schemas/resolved
                 fi
                 cd ..
         fi
