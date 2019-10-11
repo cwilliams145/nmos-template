@@ -4,6 +4,6 @@
 
 ## JSON Schemas for branch v1.0-dev
 
-- [error](error.json.with-refs) [(flattened)](error.json)
-- [exampleapi-base](exampleapi-base.json.with-refs) [(flattened)](exampleapi-base.json)
-- [id-uuid](id-uuid.json.with-refs) [(flattened)](id-uuid.json)
+- [error](error.with-refs.json) [(flattened)](error.json)
+- [exampleapi-base](exampleapi-base.with-refs.json) [(flattened)](exampleapi-base.json)
+- [id-uuid](id-uuid.with-refs.json) [(flattened)](id-uuid.json)
