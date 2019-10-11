@@ -45,6 +45,8 @@ function extract {
                     mkdir "../../$target_dir/html-APIs/schemas/resolved"
                     cp schemas/resolved/*.json "../../$target_dir/html-APIs/schemas/resolved"
                     echo "Tidying..."
+                    # Restore things how they were to ensure next checkout doesn't overwrite
+                    mv schemas/with-refs/*.json schemas/ 
                     rm -rf schemas/with-refs schemas/resolved
                 fi
                 cd ..
