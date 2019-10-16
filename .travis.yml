@@ -1,8 +1,9 @@
 if: type != push
 language: node_js
-dist: bionic
 node_js:
   - 8
+before_install:
+  - sudo apt-get install python3-pip
 install:
   - "make build-tools"
 script:
