@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - 8
 before_install:
-  - sudo apt-get install python3-pip
+  - sudo apt-get install python3-pip python3-setuptools
 install:
   - "make build-tools"
 script:
