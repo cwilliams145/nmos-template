@@ -20,7 +20,7 @@ for file in {branches,tags}/*/docs/*.md; do
 done
 
 # Removing the unwanted "schemas/" in .html links due to raml2html v6 workaround
-for file in {branches,tags}/*/html-APIs/*.html; do
-    perl -pi -e 's:schemas/::g;' "$file"
-done
+# for file in {branches,tags}/*/html-APIs/*.html; do
+#     perl -pi -e 's:schemas/::g;' "$file"
+# done
     

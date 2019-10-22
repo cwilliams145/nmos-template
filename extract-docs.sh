@@ -38,7 +38,12 @@ layout: default
 title: API $i
 ---
 EOF
+                    # Need to reference rather than embedd !included types. 
+                    # The XXXGTXXXs are to escape '<' characters that raml2html treats specially
+                    perl -pi.bak -e 's~type: *!include *schemas/(.*)\.json~type: XXXGTXXXa href="schemas/resolved/$1.html">$1XXXGTXXXa>~' $i
                     raml2html $i >> "$HTML_API"
+                    mv $i.bak $i
+                    perl -pi -e 's/XXXGTXXX/</g' "$HTML_API"
                 done
                 mkdir "../../$target_dir/html-APIs"
                 mv *.html "../../$target_dir/html-APIs/"
