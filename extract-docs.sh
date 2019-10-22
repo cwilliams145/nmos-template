@@ -30,8 +30,15 @@ function extract {
                     done
                     cd ..
                 for i in *.raml; do
-                    echo "Generating HTML from $i..."
-                    raml2html $i > "${i%%.raml}.html"
+                    HTML_API=${i%%.raml}.html
+                    echo "Generating $HTML_API from $i..."
+                    cat << EOF > "$HTML_API"
+---
+layout: default
+title: $i
+---
+EOF
+                    raml2html $i >> "$HTML_API"
                 done
                 mkdir "../../$target_dir/html-APIs"
                 mv *.html "../../$target_dir/html-APIs/"
