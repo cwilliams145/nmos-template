@@ -1,3 +1,14 @@
+---
+layout: default
+title: Schema schemas/resolved/exampleapi-base.json
+---
+<html>
+<meta charset="UTF-8">
+<h2>Schema: exampleapi-base.json</h2>
+<div id="json-render"></div>
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Describes the Example API base resource",
@@ -25,3 +36,14 @@
     "title": "Example API base resource",
     "type": "object"
 }
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+
+</html>

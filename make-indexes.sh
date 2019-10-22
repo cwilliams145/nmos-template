@@ -65,10 +65,10 @@ function do_b_or_t {
                 INDEX_SCHEMAS="html-APIs/schemas/$INDEX"
                 echo -e "\n### [JSON Schemas](html-APIs/schemas/)\n" >> "$INDEX"
                 echo -e "## JSON Schemas for $label $dirname\n" > "$INDEX_SCHEMAS"
-                for schema in html-APIs/schemas/with-refs/*.json; do
-                    no_ext="${schema%%.json}"
+                for schema in html-APIs/schemas/with-refs/*.html; do
+                    no_ext="${schema%%.html}"
                     linktext="${no_ext##*/}"
-                    echo "- [$linktext](with-refs/$linktext.json) [(flattened)](resolved/$linktext.json)" >> "$INDEX_SCHEMAS"
+                    echo "- [$linktext](with-refs/$linktext.html) [(flattened)](resolved/$linktext.html)" >> "$INDEX_SCHEMAS"
                 done
             fi
 
@@ -76,8 +76,8 @@ function do_b_or_t {
                 INDEX_EXAMPLES="examples/$INDEX"
                 echo -e "\n### [Examples](examples/)\n" >> "$INDEX"
                 echo -e "## Examples for $label $dirname\n" > "$INDEX_EXAMPLES"
-                for example in examples/*.json; do
-                    no_ext="${example%%.json}"
+                for example in examples/*.html; do
+                    no_ext="${example%%.html}"
                     linktext="${no_ext##*/}"
                     echo "- [$linktext](${example##*/})" >> "$INDEX_EXAMPLES"
                 done

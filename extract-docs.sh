@@ -35,7 +35,7 @@ function extract {
                     cat << EOF > "$HTML_API"
 ---
 layout: default
-title: $i
+title: API $i
 ---
 EOF
                     raml2html $i >> "$HTML_API"
@@ -45,12 +45,27 @@ EOF
                 if [ -d schemas ]; then
                     echo "Linting schemas..."
                     jsonlint -v schemas/*.json
-                    echo "Copying schemas..."
+                    echo "Rendering schemas..."
+                    mkdir schemas/with-refs schemas/resolved 
+                    for i in schemas/{with-refs,resolved}/*.json; do
+                        HTML_SCHEMA=${i%%.json}.html
+                        echo "Generating $HTML_SCHEMA from $i..."
+                        cat << EOF > "$HTML_SCHEMA"
+---
+layout: default
+title: Schema $i
+---
+EOF
+                        ../../render-json.sh $i "Schema: ${i##*/}" >> "$HTML_SCHEMA"
+                    done
+                    echo "Moving schemas..."
                     mkdir "../../$target_dir/html-APIs/schemas"
                     mkdir "../../$target_dir/html-APIs/schemas/with-refs"
-                    cp schemas/with-refs/*.json "../../$target_dir/html-APIs/schemas/with-refs"
+                    cp ../../json-formatter.js "../../$target_dir/html-APIs/schemas/with-refs"
+                    mv schemas/with-refs/*.html "../../$target_dir/html-APIs/schemas/with-refs"
                     mkdir "../../$target_dir/html-APIs/schemas/resolved"
-                    cp schemas/resolved/*.json "../../$target_dir/html-APIs/schemas/resolved"
+                    cp ../../json-formatter.js "../../$target_dir/html-APIs/schemas/resolved"
+                    mv schemas/resolved/*.html "../../$target_dir/html-APIs/schemas/resolved"
                     echo "Tidying..."
                     # Restore things how they were to ensure next checkout doesn't overwrite
                     mv schemas/with-refs/*.json schemas/ 
@@ -61,8 +76,22 @@ EOF
         if [ -d examples ]; then
             echo "Linting examples..."
             jsonlint -v examples/*.json
-            echo "Copying examples..."
-            cp -r examples "../$target_dir"
+            echo "Rendering examples..."
+            for i in examples/*.json; do
+               HTML_EXAMPLE=${i%%.json}.html 
+               echo "Generating $HTML_EXAMPLE from $i..." 
+               cat << EOF > "$HTML_EXAMPLE"
+---
+layout: default
+title: Example $i
+---               
+EOF
+               ../render-json.sh $i "Example: ${i##*/}" >> "$HTML_EXAMPLE"
+            done
+            echo "Moving examples..."
+            mkdir "../$target_dir/examples"
+            mv examples/*.html "../$target_dir/examples"
+            cp ../json-formatter.js "../$target_dir/examples"
         fi
     cd ..
 }

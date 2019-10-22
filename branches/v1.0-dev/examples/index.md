@@ -4,4 +4,4 @@
 
 ## Examples for branch v1.0-dev
 
-- [exampleapi-v1.0-base-get-200](exampleapi-v1.0-base-get-200.json)
+- [exampleapi-v1.0-base-get-200](exampleapi-v1.0-base-get-200.html)
