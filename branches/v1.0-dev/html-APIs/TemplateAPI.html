@@ -14,9 +14,15 @@ title: API TemplateAPI.raml
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript" src="json-formatter.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
+          // check if the element contains JSON and store it as a data attribute
+          try {
+            var jsonObj = JSON.parse($(block).html());
+            $(block).data('json', jsonObj);
+          } catch (e) {}
           hljs.highlightBlock(block);
         });
         $('[data-toggle]').click(function() {
@@ -31,6 +37,26 @@ title: API TemplateAPI.raml
           var element = $('#' + anchor_id);
           // do we have such element + is it a modal?  --> show it
           if (element.length && element.hasClass('modal')) {
+            // modal loaded event handler
+            element.on('show.bs.modal', function(e) {
+              // find JSON examples
+              element.find('pre code').each(function(index, el) {
+                // jQuery up the element
+                el = $(el);
+                // exit as json doesn't exist or element has already been formatted
+                if (el.data('json-formatted') === 'true' || el.data('json') === undefined) {
+                  return;
+                }
+                // format the JSON
+                var formatter = new JSONFormatter.default(el.data('json'), 3);
+                // clear the container
+                el.empty();
+                // render the formatted json
+                el.parent()[0].appendChild(formatter.render());
+                // prevent duplicate rendering if the modal is re-opened
+                el.data('json-formatted', 'true');
+              });
+            });
             element.modal('show');
           }
         });
@@ -45,6 +71,7 @@ title: API TemplateAPI.raml
           } catch (e) {}
         });
       });
+    </script>
     </script>
     <style>
       .hljs {
@@ -262,7 +289,35 @@ title: API TemplateAPI.raml
                               <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
                               <h3>Body</h3>
                               <p><strong>Media type</strong>: application/json</p>
-                              <p><strong>Type</strong>: <a href="schemas/resolved/exampleapi-base.html">exampleapi-base<a></p>
+                              <p><strong>Type</strong>:</p>
+                              <pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes the Example API base resource",
+    "properties": {
+        "id": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description": "Describes an UUID id object",
+            "properties": {
+                "id": {
+                    "description": "UUID",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "UUID ID",
+            "type": "object"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "title": "Example API base resource",
+    "type": "object"
+}
+</code></pre>
                               <p><strong>Example</strong>:</p>
                               <div class="examples">
                                 <pre><code>{
