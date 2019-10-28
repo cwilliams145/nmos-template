@@ -93,7 +93,9 @@ do_b_or_t tags release/tag
 
 echo "Making top level $INDEX"
 
-cat "$INTRO" > "$INDEX"
+CI_URL=${REPO_ADDRESS/github.com/travis-ci.com}
+echo -e "[![Build Status](${CI_URL}.svg)](${CI_URL})\n" > "$INDEX"
+cat "$INTRO" >> "$INDEX"
 echo >> "$INDEX"
 
 # Add the default links at the top - correct the links while copying text
