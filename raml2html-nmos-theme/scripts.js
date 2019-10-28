@@ -1,3 +1,5 @@
+// (c) AMWA 2019
+
 $(document).ready(function() {
   $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
     // check if the element contains JSON and store it as a data attribute
