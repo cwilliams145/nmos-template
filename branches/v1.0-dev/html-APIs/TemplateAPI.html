@@ -55,6 +55,20 @@ title: API TemplateAPI.raml
                 el.parent()[0].appendChild(formatter.render());
                 // prevent duplicate rendering if the modal is re-opened
                 el.data('json-formatted', 'true');
+                // create collapse and expand buttons
+                var collapseBtn = $('<button class="btn btn-default btn-sm" type="button">Collapse</button>');
+                var expandBtn = $('<button class="btn btn-default btn-sm" type="button">Expand</button>');
+                // collapse click handler
+                collapseBtn.on('click', function() {
+                  formatter.openAtDepth(1);
+                });
+                // expand click handler
+                expandBtn.on('click', function() {
+                  formatter.openAtDepth(Infinity);
+                });
+                // add expand and collapse buttons above the rendered JSON
+                el.parent().prepend(expandBtn);
+                el.parent().prepend(collapseBtn);
               });
             });
             element.modal('show');
@@ -71,7 +85,6 @@ title: API TemplateAPI.raml
           } catch (e) {}
         });
       });
-    </script>
     </script>
     <style>
       .hljs {
@@ -289,10 +302,41 @@ title: API TemplateAPI.raml
                               <h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2>
                               <h3>Body</h3>
                               <p><strong>Media type</strong>: application/json</p>
-                              <p><strong>Type</strong>: schemas/exampleapi-base.json</p>
+                              <p><strong>Type</strong>:</p>
+                              <pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes the Example API base resource",
+    "properties": {
+        "id": {
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description": "Describes an UUID id object",
+            "properties": {
+                "id": {
+                    "description": "UUID",
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "UUID ID",
+            "type": "object"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "title": "Example API base resource",
+    "type": "object"
+}
+</code></pre>
                               <p><strong>Example</strong>:</p>
                               <div class="examples">
-                                <pre><code>../examples/exampleapi-v1.0-base-get-200.json</code></pre>
+                                <pre><code>{
+    "id": "67194c23-4f7d-4246-b440-8184394c2a80"
+}
+</code></pre>
                               </div>
                             </div>
                           </div>

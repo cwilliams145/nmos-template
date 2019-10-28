@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/AMWA-TV/nmos-template.svg)](https://travis-ci.com/AMWA-TV/nmos-template)
+
 This is a template that we recommend using as a starting point for new NMOS Specifications.
 
 It has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initiative.

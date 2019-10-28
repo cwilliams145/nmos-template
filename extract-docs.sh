@@ -24,7 +24,10 @@ function extract {
                     mkdir with-refs resolved
                     for i in *.json; do
                         echo "Resolving schema references for $i"
-                        ../../../resolve-schema.py $i > resolved/$i
+                        if ! ../../../resolve-schema.py $i > resolved/$i ; then
+                            echo "WARNING: Resolving failed: resolved/$i may include \$refs"
+                            cp $i resolved/$i
+                        fi
                         mv $i with-refs/
                         cp resolved/$i $i
                     done
@@ -38,20 +41,13 @@ layout: default
 title: API $i
 ---
 EOF
-                    # Need to reference rather than embedd !included types. 
-                    # The XXXGTXXXs are to escape '<' characters that raml2html treats specially
-                    # perl -pi.bak -e 's~type: *!include *schemas/(.*)\.json~type: XXXGTXXXa href="schemas/resolved/$1.html">$1XXXGTXXXa>~' $i
                     raml2html -p --theme raml2html-nmos-theme $i >> "$HTML_API"
-                    # mv $i.bak $i
-                    # perl -pi -e 's/XXXGTXXX/</g' "$HTML_API"
                 done
                 mkdir "../../$target_dir/html-APIs"
                 mv *.html "../../$target_dir/html-APIs/"
                 cp ../../json-formatter.js "../../$target_dir/html-APIs/"
 
                 if [ -d schemas ]; then
-                    echo "Linting schemas..."
-                    jsonlint -v schemas/*.json
                     echo "Rendering with-refs schemas..."
                     mkdir schemas/with-refs
                     for i in schemas/with-refs/*.json; do
