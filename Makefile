@@ -1,36 +1,9 @@
-.PHONY: build all source-repo docs indexes fix-links push clean
+-include .scripts/scripts.mk
 
-build: source-repo docs indexes fix-links layouts
-
-all: build push
-
+.PHONY: build-tools distclean
 
 build-tools:
 	./make-build-tools.sh
-
-source-repo:
-	.scripts/get-source-repo.sh
-
-docs:
-	.scripts/extract-docs.sh
-
-indexes:
-	.scripts/make-indexes.sh
-
-fix-links:
-	.scripts/fix-links.sh
-
-layouts:
-	.scripts/make-layouts.sh
-
-server:
-	.scripts/run-server.sh
-
-push:
-	.scripts/push-to-github.sh
-
-clean:
-	.scripts/make-clean.sh
 
 distclean:
 	./make-distclean.sh
