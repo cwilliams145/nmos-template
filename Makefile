@@ -1,6 +1,6 @@
 .PHONY: build all source-repo docs indexes fix-links push clean
 
-build: source-repo docs indexes fix-links
+build: source-repo docs indexes fix-links layouts
 
 all: build push
 
@@ -19,6 +19,9 @@ indexes:
 
 fix-links:
 	.scripts/fix-links.sh
+
+layouts:
+	.scripts/make-layouts.sh
 
 server:
 	.scripts/run-server.sh
