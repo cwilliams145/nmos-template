@@ -1,7 +1,7 @@
 #!/bin/bash
 
-yarn add raml2html
-git clone https://github.com/AMWA-TV/raml2html-nmos-theme
-yarn add file:./raml2html-nmos-theme
-yarn add jsonlint
+#!/bin/bash
+
+git clone https://${GITHUB_TOKEN:+${GITHUB_TOKEN}@}github.com/AMWA-TV/raml2html-nmos-theme
+yarn install
 sudo pip3 install jsonref pathlib
