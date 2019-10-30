@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 rm -rf source-repo/
 
 git add -A

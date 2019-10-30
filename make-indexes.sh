@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 # TODO: Move some of the common/looped code into functions (DRY)
 
 shopt -s nullglob

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 shopt -s nullglob
 
 echo "Fixing links in documents"

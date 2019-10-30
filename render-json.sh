@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 JSON_FILE=$1
 NAME=$2
 ALT_HREF=$3

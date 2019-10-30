@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o errexit
+
 if [ ! -d node_modules/.bin ]; then
     echo "fatal: Cannot find build tools (have you done 'make build-tools?')"
     exit 1
@@ -49,14 +51,12 @@ EOF
 
                 if [ -d schemas ]; then
                     echo "Rendering with-refs schemas..."
-                    mkdir schemas/with-refs
                     for i in schemas/with-refs/*.json; do
                         HTML_SCHEMA=${i%%.json}.html
                         # echo "Generating $HTML_SCHEMA from $i..."
                         ../../render-json.sh "$i" "Schema ${i##*/}" "../../${HTML_SCHEMA/with-refs/resolved}" "Resolve referenced schemas" > "$HTML_SCHEMA"
                     done
                     echo "Rendering resolved schemas..."
-                    mkdir schemas/resolved
                     for i in schemas/resolved/*.json; do
                         HTML_SCHEMA=${i%%.json}.html
                         # echo "Generating $HTML_SCHEMA from $i..."
@@ -78,8 +78,8 @@ EOF
                 cd ..
         fi
         if [ -d examples ]; then
-            echo "Linting examples..."
-            jsonlint -v examples/*.json
+            # echo "Linting examples..."
+            # jsonlint -v examples/*.json
             echo "Rendering examples..."
             for i in examples/*.json; do
                HTML_EXAMPLE=${i%%.json}.html 
