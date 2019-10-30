@@ -9,25 +9,25 @@ build-tools:
 	./make-build-tools.sh
 
 source-repo:
-	./get-source-repo.sh
+	.scripts/get-source-repo.sh
 
 docs:
-	./extract-docs.sh
+	.scripts/extract-docs.sh
 
 indexes:
-	./make-indexes.sh
+	.scripts/make-indexes.sh
 
 fix-links:
-	./fix-links.sh
+	.scripts/fix-links.sh
 
 server:
-	./run-server.sh
+	.scripts/run-server.sh
 
 push:
-	./push-to-github.sh
+	.scripts/push-to-github.sh
 
 clean:
-	./make-clean.sh
+	.scripts/make-clean.sh
 
 distclean:
 	./make-distclean.sh
