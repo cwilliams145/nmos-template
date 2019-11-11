@@ -34,11 +34,11 @@ const formatter = new JSONFormatter.default(
             "properties.id"
         ],
         sortPropertiesBy: function(a, b) {
-           if (a === "title") { return -1; }
-           if (b === "title") { return 1; }
-           if (a === "description") { return -1; }
-           if (b === "description") { return 1; }
-           return a > b;
+            for (top of [ "title", "description" ]) {
+               if (a === top) { return b !== top ? -1 : 0; }
+               if (b === top) { return 1; }
+           }
+           return a.localeCompare(b);
         }
     });
 document.getElementsByClassName("content")[0].appendChild(formatter.render());
