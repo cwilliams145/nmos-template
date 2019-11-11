@@ -5,9 +5,11 @@
 [![Build Status](https://travis-ci.com/AMWA-TV/nmos-template.svg)](https://travis-ci.com/AMWA-TV/nmos-template)
 
 
+
 ---
 
 ## About IS-TEMPLATE
+
 
 ### What does it do?
 
@@ -23,7 +25,9 @@
 - It contains examples of documentation, API, schemas, and examples.
 - These are rendered onto amwa-tv.github.io
 
+
 ---
+
 
 IS-TEMPLATE has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initiative.
 
@@ -34,7 +38,6 @@ The formal (template) specification is provided in [this GitHub repository](http
 The documentation and API links immediately below, and the links in the page heading, are for an example development branch. Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or under "VERSIONS..." in the page heading.
 
 Once AMWA has approved a Specification, its documentation and API links will be for the _most recent approved release_ (which may be earlier than what is shown by the default branch on the GitHub repo).
-
 
 ## Documentation for branch v1.0-dev
 
