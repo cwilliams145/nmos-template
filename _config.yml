@@ -1,6 +1,9 @@
 # Don't change this
 theme: jekyll-theme-primer
 
+# AMWA ID
+amwa_id: IS-TEMPLATE
+
 # GitHub project
 baseurl: /nmos-template
 

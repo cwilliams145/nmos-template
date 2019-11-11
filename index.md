@@ -7,7 +7,7 @@
 
 ---
 
-## About this Specification
+## About IS-TEMPLATE
 
 ### What does it do?
 
@@ -25,7 +25,7 @@
 
 ---
 
-This Specification has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initiative.
+IS-TEMPLATE has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initiative.
 
 See [here](https://amwa-tv.github.io/nmos) for an overview of NMOS specifications.
 
