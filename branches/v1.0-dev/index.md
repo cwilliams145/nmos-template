@@ -9,9 +9,9 @@
 
 ## APIs for branch v1.0-dev
 
-- [TemplateAPI](html-APIs/TemplateAPI.html)
+- [TemplateAPI](APIs/TemplateAPI.html)
 
-### [JSON Schemas](html-APIs/schemas/)
+### [JSON Schemas](APIs/schemas/)
 
 
 ### [Examples](examples/)

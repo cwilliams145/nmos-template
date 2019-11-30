@@ -41,15 +41,15 @@
                 </div>
             </span>
 
-          {% when "PARAM-REGS" %}
+          {% when "NMOS-PARAMETER-REGISTERS" %}
             <span class="dropdown">REGISTERS...
               <div class="dropdown-content">
-                <p><a href="{{ site.baseurl }}/node-service-types">Node Service Types</a></p>
-                <p><a href="{{ site.baseurl }}/device-control-types">Device Control Types</a></p>
-                <p><a href="{{ site.baseurl }}/formats">Formats</a></p>
-                <p><a href="{{ site.baseurl }}/transports">Transports</a></p>
-                <p><a href="{{ site.baseurl }}/device-types">Device Types</a></p>
-                <p><a href="{{ site.baseurl }}/tags">Tags</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/node-service-types">Node Service Types</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/device-control-types">Device Control Types</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/formats">Formats</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/transports">Transports</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/device-types">Device Types</a></p>
+                <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/tags">Tags</a></p>
               </div>
             </span>
 
@@ -58,14 +58,17 @@
             <a href="{{ site.baseurl }}/{{ site.default_tree }}/docs/2.0._Identity_and_Timing_Model.html">MODEL</a>
             <a href="{{ site.baseurl }}/{{ site.default_tree }}/docs/3.0._Practical_Guidance_for_Media.html">GUIDANCE</a>
 
+          {% when "NMOS-TESTING" %}
+            <a href="{{ site.baseurl }}/{{ site.default_tree }}/docs">DOCS</a>
+
           {% else %}
 
             {% if site.amwa_id contains "IS-" %}
               <a href="{{ site.baseurl }}/{{ site.default_tree }}/docs">DOCS</a>
               <span class="dropdown">SPEC...
                 <div class="dropdown-content">
-                  <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs">APIS</a></p>
-                  <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs/schemas">SCHEMAS</a></p>
+                  <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/APIs">APIS</a></p>
+                  <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/APIs/schemas">SCHEMAS</a></p>
                   <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/examples">EXAMPLES</a></p>
                 </div>
               </span>
@@ -83,8 +86,14 @@
           {% endcase %}
 
           <a href="{{ site.github.repository_url }}">GITHUB</a>
-          <a href="https://github.com/AMWA-TV/nmos/wiki">WIKI</a>
-          <a href="https://github.com/AMWA-TV/nmos/wiki/FAQ">FAQs</a>
+          <span class="dropdown">INFO...
+            <div class="dropdown-content">
+                <p><a href="https://amwa-tv.github.io/nmos/branches/master/FAQ.html">FAQ</a></p>
+                <p><a href="https://amwa-tv.github.io/nmos/branches/master/Glossary.html">Glossary</a></p>
+                <p><a href="https://amwa-tv.github.io/nmos/branches/master/NMOS-Solutions.html">Implementations</a></p>
+                <p><a href="https://github.com/AMWA-TV/nmos/wiki">WIKI</a></p>
+            </div>
+          </span>
           <span class="dropdown">TOOLS...
             <div class="dropdown-content">
               <p><a href="https://amwa-tv.github.io/nmos-testing">API Testing Tool</a></p>
@@ -122,12 +131,12 @@
         {{ content }}
       </div>
 
-      {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-          Documentation built at {{ site.time | date: '%H:%M:%S %Z on %Y-%m-%d' }}. This site is open source. {% github_edit_link "Improve this page" %}.
-
-      </div>
+          Documentation built at {{ site.time | date: '%H:%M:%S %Z on %Y-%m-%d' }}. 
+      {% if site.github.private != true and site.github.license %}
+          This site is open source. {% github_edit_link "Improve this page" %}.
       {% endif %}
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>

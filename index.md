@@ -45,9 +45,9 @@ Once AMWA has approved a Specification, its documentation and API links will be 
 
 ## APIs for branch v1.0-dev
 
-- [TemplateAPI](branches/v1.0-dev/html-APIs/TemplateAPI.html)
+- [TemplateAPI](branches/v1.0-dev/APIs/TemplateAPI.html)
 
-### [JSON Schemas](branches/v1.0-dev/html-APIs/schemas/)
+### [JSON Schemas](branches/v1.0-dev/APIs/schemas/)
 
 
 ### [Examples](branches/v1.0-dev/examples/)
