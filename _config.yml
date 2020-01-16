@@ -13,3 +13,18 @@ default_tree: branches/v1.0-dev # alternatively e.g. tags/v1.0
 # Regex patterns of tags (releases) and branches to show
 show_tags: v[0-9]*\.[0-9]*
 show_branches: v[0-9]*\.[0-9]*
+
+collections:
+    xbranches:
+        output: true
+    xtags:
+        output: true
+    xdocs:
+        output: true
+    xAPIs:
+        output: true
+    xschemas:
+        output: true
+    xexamples:
+        output: true
+

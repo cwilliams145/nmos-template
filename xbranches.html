@@ -1,0 +1,14 @@
+---
+layout: default
+title: Branches
+---
+<h1>Branches</h1>
+
+<ul>
+  {% for branch in site.xbranches %}
+    <li>
+        <h2><a href="{{ branch.url | prepend:site.baseurl }}">{{ branch.name }}</a></h2>
+      <p>{{ branch.content | markdownify }}</p>
+    </li>
+  {% endfor %}
+</ul>
