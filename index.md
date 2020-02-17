@@ -2,8 +2,9 @@
 
 # {{ site.github.project_tagline }}
 
-[![Build Status](https://travis-ci.com/AMWA-TV/nmos-template.svg?branch=v1.0-dev)](https://travis-ci.com/AMWA-TV/nmos-template)
-
+| Repository | Default Branch | Lint (default) | Render (all) |
+| --- | --- | --- | --- |
+| [nmos-template](https://github.com/AMWA-TV/nmos-template) | v1.0-dev | <a href="https://travis-ci.com/AMWA-TV/nmos-template?branch=v1.0-dev"><img src="https://travis-ci.com/AMWA-TV/nmos-template.svg?branch=v1.0-dev" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-template?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-template.svg?branch=gh-pages" width="100"/></a> |
 
 
 ---
