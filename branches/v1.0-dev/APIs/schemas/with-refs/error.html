@@ -10,9 +10,10 @@ title: Schema error.json
     <a href="../../schemas/resolved/error.html">Resolve referenced schemas</a>
 </p>
 <div id="json-render">
-<script type="text/javascript" src="renderjson.js"></script>
+<script type="text/javascript" src="json-formatter.js"></script>
 <script>
-var my_json={
+const formatter = new JSONFormatter.default(
+{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
@@ -39,7 +40,21 @@ var my_json={
     }
   }
 }
-document.getElementById("json-render").appendChild(renderjson.set_show_to_level(3)(my_json));
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ],
+        sortPropertiesBy: function(a, b) {
+           if (a === "title") { return -1; }
+           if (b === "title") { return 1; }
+           if (a === "description") { return -1; }
+           if (b === "description") { return 1; }
+           return a > b;
+        }
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
 </script>
 </div>
 </html>
