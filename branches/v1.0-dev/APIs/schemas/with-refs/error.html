@@ -20,7 +20,11 @@ title: Schema error.json
 <script src="codemirror/addon/fold/indent-fold.js"></script>
 
 <style>
-  .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+  .CodeMirror {
+    border-top: 1px solid black; 
+    border-bottom: 1px solid black;
+    height: 500px;
+  }
 </style>
 
 <textarea id="mytextarea">
@@ -58,6 +62,7 @@ window.editor_json = CodeMirror.fromTextArea(mytextarea, {
         name: "javascript",
         json: true
     },
+    readOnly: true,
     lineNumbers: true,
     lineWrapping: true,
     extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
@@ -89,6 +94,7 @@ window.editor_json = CodeMirror.fromTextArea(mytextarea, {
       }
     }
   );
+editor_json.
 editor_json.foldCode(CodeMirror.Pos(3, 0));
 </script>
 </div>
