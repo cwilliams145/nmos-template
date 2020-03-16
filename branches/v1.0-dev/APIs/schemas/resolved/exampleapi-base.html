@@ -7,7 +7,7 @@ title: Schema exampleapi-base.json
 <meta charset="UTF-8">
 <h2>Schema exampleapi-base.json</h2>
 <p>
-    <a href="../../schemas/with-refs/exampleapi-base.html">Show referenced schemas with $ref</a>
+    <a href="../../schemas/with-refs/exampleapi-base.html">Show original (referenced schemas with $ref)</a>
 </p>
 <div id="json-render">
 <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
@@ -63,7 +63,7 @@ window.editor_json = CodeMirror.fromTextArea(mytextarea, {
         json: true
     },
     readOnly: true,
-    lineNumbers: true,
+    lineNumbers: false,
     lineWrapping: true,
     extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
     foldGutter: true,
