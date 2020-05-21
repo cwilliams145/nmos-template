@@ -74,8 +74,8 @@ body {
   }
   
   .header {
-    height: 64px;
-    line-height: 64px;
+    height: 88px;
+    line-height: 48px;
     width: 1024px;
     font-size: 100%;
     background: #4040ff;
@@ -112,7 +112,19 @@ body {
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+      .breadcrumbs {
+        height: 40px;
+        line-height: 40px;
+        background: #80a0ff;
+
+        a {
+            color: #4040ff;
+        }
+      }
+
   }
+  
   
   .content {
     padding: 16px;

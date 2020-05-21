@@ -19,7 +19,6 @@
       </div>
 
         <div class="header" id="myHeader">
-          <a href="{{ site.baseurl }}/">HOME</a>
 
           {% case site.amwa_id %}
 
@@ -126,20 +125,18 @@
                   <div class="gcse-searchbox-only"></div>
               </div>
           </span>
-        </div>
+          <div class="breadcrumbs">
+              {% assign dirlist = page.url | split: "/" %}
+              {% assign nlinks = dirlist.size | minus: 2 %}
+              {% assign link = site.baseurl | append: "/" %}
+              <a href="{{ link }}">HOME</a> ➤ 
+              {% for i in (1..nlinks) %}
+                {% assign link = link | append: dirlist[i] | append: "/" %}
+                <a href="{{ link }}"> {{ dirlist[i] }} </a> ➤
+              {% endfor %}
+          </div>
 
-      <div class="breadcrumbs">
-          <br/>
-          <p>
-          {% assign dirlist = page.url | split: "/" %}
-          {% assign nlinks = dirlist.size | minus: 1 %}
-          {% assign link = site.baseurl | append: "/" %}
-          {% for i in (1..nlinks) %}
-          <a href="{{ link }}"> ➤  </a>{{ dirlist[i] }}
-          {% assign link = link | append: dirlist[i] | append: "/" %}
-          {% endfor %}
-          </p>
-      </div>
+        </div>
 
       <div class="content">
         {{ content }}
