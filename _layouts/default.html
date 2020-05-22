@@ -133,9 +133,9 @@
         {% if site.amwa_id contains "IS-" or site.amwa_id contains "MS-" %}
           <div class="breadcrumbs">
               {% assign dirlist = page.url | split: "/" %}
-              {% assign nlinks = dirlist.size | minus: 2 %}
+              {% assign nlinks = dirlist.size | minus: 2 | at_most: 4 %}
               {% assign link = site.baseurl | append: "/" %}
-              <a href="{{ link }}">HOME</a> ➤ 
+              <a href="{{ link }}">{{ site.amwa_id }}</a> ➤
               {% for i in (1..nlinks) %}
                 {% assign link = link | append: dirlist[i] | append: "/" %}
                 <a href="{{ link }}"> {{ dirlist[i] }} </a> ➤
