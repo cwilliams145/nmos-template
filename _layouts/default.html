@@ -20,6 +20,10 @@
 
         <div class="header" id="myHeader">
 
+        {% unless site.amwa_id contains "IS-" or site.amwa_id contains "MS-" %}
+            <a href="{{ site.baseurl }}/">HOME</a>
+        {% endunless %}
+
           {% case site.amwa_id %}
 
           {% when "NMOS" %}
@@ -73,7 +77,7 @@
               </span>
               <span class="dropdown">VERSIONS...
                 <div class="dropdown-content">
-                  <p><a href="{{ site.baseurl }}/tags">RELEASES</a></p>
+                  <p><a href="{{ site.baseurl }}/tags">RELEASES (TAGS)</a></p>
                   <p><a href="{{ site.baseurl }}/branches">BRANCHES</a></p>
                 </div>
               </span>
@@ -125,6 +129,8 @@
                   <div class="gcse-searchbox-only"></div>
               </div>
           </span>
+
+        {% if site.amwa_id contains "IS-" or site.amwa_id contains "MS-" %}
           <div class="breadcrumbs">
               {% assign dirlist = page.url | split: "/" %}
               {% assign nlinks = dirlist.size | minus: 2 %}
@@ -135,6 +141,7 @@
                 <a href="{{ link }}"> {{ dirlist[i] }} </a> ➤
               {% endfor %}
           </div>
+        {% endif %}
 
         </div>
 

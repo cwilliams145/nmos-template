@@ -74,7 +74,11 @@ body {
   }
   
   .header {
-    height: 88px;
+    {% if site.amwa_id contains "IS-" or site.amwa_id contains "MS-" %}
+        height: 88px;
+    {% else %}
+        height: 48px;
+    {% endif %}
     line-height: 48px;
     width: 1024px;
     font-size: 100%;
