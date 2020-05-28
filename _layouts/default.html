@@ -149,10 +149,12 @@
         {{ content }}
       </div>
 
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-          Documentation built at {{ site.time | date: '%H:%M:%S %Z on %Y-%m-%d' }}. 
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-center text-gray">
+          Documentation built at {{ site.time | date: '%H:%M:%S %Z on %Y-%m-%d' }}. <br/> 
       {% if site.github.private != true and site.github.license %}
-          This site is open source. {% github_edit_link "Improve this page" %}.
+      (c) AMWA {{ site.time | date: '%Y' }}. 
+      RAML/JSON licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>. 
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a>.
       {% endif %}
       </div>
     </div>
