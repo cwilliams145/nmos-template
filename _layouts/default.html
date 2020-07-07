@@ -82,7 +82,16 @@
                   <p><a href="{{ site.baseurl }}/branches">BRANCHES</a></p>
                 </div>
               </span>
-            
+
+            {% elsif site.amwa_id contains "BCP-003-" %}
+              <a href="{{ site.baseurl }}/{{ site.default_tree }}/docs">DOCS</a>
+              <span class="dropdown">VERSIONS...
+                <div class="dropdown-content">
+                  <p><a href="{{ site.baseurl }}/tags">RELEASES (TAGS)</a></p>
+                  <p><a href="{{ site.baseurl }}/branches">BRANCHES</a></p>
+                </div>
+              </span>
+
             {% else %}
               UNKNOWN ID
             {% endif %}
@@ -121,6 +130,9 @@
                   <p><a href="https://amwa-tv.github.io/nmos-id-timing-model">MS-04 Identity & Timing Model</a></p>
                   <p><a href="https://amwa-tv.github.io/nmos-grouping">BCP-002 Grouping</a></p>
                   <p><a href="https://amwa-tv.github.io/nmos-api-security">BCP-003 API Security</a></p>
+                  <p><a href="https://amwa-tv.github.io/nmos-secure-communication">BCP-003-01 Secure Communications</a></p>
+                  <p><a href="https://amwa-tv.github.io/nmos-authorization-practice">BCP-003-02 Authorization Practice</a></p>
+                  <p><a href="https://amwa-tv.github.io/nmos-certificate-provisioning">BCP-003-03 Certificate Provisioning</a></p>
                   <p><a href="https://amwa-tv.github.io/nmos-parameter-registers">Parameter Registers</a></p>
               </div>
               </span>
@@ -131,7 +143,7 @@
               </div>
           </span>
 
-        {% if site.amwa_id contains "IS-" or site.amwa_id contains "MS-" %}
+        {% if site.amwa_id contains "IS-" or site.amwa_id contains "MS-" or site.amwa_id contains "BCP-003-" %}
           <div class="breadcrumbs">
               {% assign dirlist = page.url | split: "/" %}
               {% assign nlinks = dirlist.size | minus: 2 | at_most: 4 %}

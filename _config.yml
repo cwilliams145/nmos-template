@@ -5,7 +5,7 @@ theme: jekyll-theme-primer
 amwa_id: IS-TEMPLATE
 
 # GitHub project
-baseurl: /nmos-template
+baseurl: /
 
 # Which relase or branch appears in header links and on the home page
 default_tree: branches/v1.0-dev # alternatively e.g. tags/v1.0
