@@ -78,8 +78,8 @@
               </span>
               <span class="dropdown">VERSIONS...
                 <div class="dropdown-content">
-                  <p><a href="{{ site.baseurl }}/tags">RELEASES (TAGS)</a></p>
-                  <p><a href="{{ site.baseurl }}/branches">BRANCHES</a></p>
+                  <p><a href="{{ site.baseurl }}/tags">PUBLISHED RELEASES (TAGS)</a></p>
+                  <p><a href="{{ site.baseurl }}/branches">DEVELOPMENT BRANCHES</a></p>
                 </div>
               </span>
 
@@ -153,7 +153,17 @@
                 {% assign link = link | append: dirlist[i] | append: "/" %}
                 <a href="{{ link }}"> {{ dirlist[i] }} </a> ➤
               {% endfor %}
-          </div>
+              {% if dirlist.size > 2 %}
+                 {% if dirlist[1] == "branches" %}
+                     <span class="version-warning"><a href="{{ site.baseurl }}/tags">Viewing development version(s). Click here for published version(s)</a></span>
+                 {% elsif dirlist[1] == "tags" %}
+                     {% assign this_tree = dirlist[2] | prepend: "tags/" %}
+                     {% if this_tree != site.default_tree  %}
+                         <span class="version-warning"><a href="{{ site.baseurl }}/tags">Viewing old version. Click here for list of published versions.</a></span>
+                     {% endif %}
+                 {% endif %}
+              {% endif %}
+              </div>
         {% endif %}
 
         </div>
