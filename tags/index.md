@@ -2,4 +2,4 @@
 
 # {{ site.github.project_tagline }}
 
-## Releases/Tags
+## Published Releases/Tags
