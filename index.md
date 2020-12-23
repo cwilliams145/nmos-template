@@ -4,7 +4,7 @@
 
 | Repository | Default Branch | Lint (default) | Render (all) |
 | --- | --- | --- | --- |
-| [nmos-template](https://github.com/AMWA-TV/nmos-template) | v1.0-dev | <a href="https://travis-ci.com/AMWA-TV/nmos-template?branch=v1.0-dev"><img src="https://travis-ci.com/AMWA-TV/nmos-template.svg?branch=v1.0-dev" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-template?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-template.svg?branch=gh-pages" width="100"/></a> |
+| [nmos-template](https://github.com/AMWA-TV/nmos-template) | v1.0-dev | [![Lint Status](https://github.com/AMWA-TV/nmos-template/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-template/actions?query=workflow%3ALint) | [![Render Status](https://github.com/AMWA-TV/nmos-template/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-template/actions?query=workflow%3ARender) |
 
 
 ---
@@ -52,8 +52,8 @@ The links to documentation, API and examples below and for DOCS and SPEC in the 
 ### [Examples](branches/v1.0-dev/examples/)
 
 
-## Branches
+## Development Branches
 
 [v1.0-dev](branches/v1.0-dev/)
 
-## Releases/Tags
+##  Published Releases/Tags
